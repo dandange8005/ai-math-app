@@ -28,11 +28,20 @@ Comprehensive guide to expanding the question bank:
 - Implementation approaches
 - Legal considerations
 
+### [GitHub Setup Guide](./github-setup-guide.md)
+Step-by-step guide for uploading project to GitHub:
+- Installing GitHub CLI
+- Authentication process
+- Creating and connecting repositories
+- Pushing code to remote
+- Troubleshooting common issues
+
 ## 🚀 Quick Start
 
 1. **For Parents/Users**: Read the [Project Overview](./project-overview.md)
 2. **For Developers**: Start with [Development Guide](./development-guide.md)
 3. **For Content**: Check [Question Data Sources](./question-data-sources.md)
+4. **For GitHub Setup**: Follow [GitHub Setup Guide](./github-setup-guide.md)
 
 ## 📋 Current Features
 
@@ -44,13 +53,13 @@ Comprehensive guide to expanding the question bank:
 
 ## 🎯 Learning Areas Covered
 
-### Ethan's Areas (Grade 7)
+### Ethan's Areas (Year 6, UK)
 - Time Tables & Time Zones
 - Speed, Distance & Time Relationships
 - Rounding Estimation
 - Decimal Problem Solving
 
-### Daniel's Areas (Grade 4)
+### Daniel's Areas (Year 4, UK)
 - Thermometer Scale Reading
 - Time Fraction Interpretation
 - Multiplication/Division by 10s
