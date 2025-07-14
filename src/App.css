@@ -161,12 +161,14 @@
 
 .area-actions {
   display: flex;
-  gap: 1rem;
+  gap: 0.5rem;
   margin-top: 1rem;
+  flex-wrap: wrap;
 }
 
 .practice-button,
-.quiz-button {
+.quiz-button,
+.racing-button {
   padding: 0.5rem 1rem;
   border: none;
   border-radius: 4px;
@@ -191,6 +193,15 @@
 
 .quiz-button:hover {
   background-color: #c0392b;
+}
+
+.racing-button {
+  background-color: #f39c12;
+  color: white;
+}
+
+.racing-button:hover {
+  background-color: #e67e22;
 }
 
 .stats-grid {
@@ -996,5 +1007,1461 @@
     flex-direction: column;
     text-align: center;
     gap: 0.5rem;
+  }
+}
+
+/* Parent Dashboard Styles */
+.parent-dashboard {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.dashboard-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.dashboard-header h1 {
+  color: #2c3e50;
+  margin: 0 0 0.5rem 0;
+  font-size: 2.5rem;
+}
+
+.dashboard-header p {
+  color: #7f8c8d;
+  font-size: 1.1rem;
+  margin: 0;
+}
+
+.family-overview {
+  margin-bottom: 3rem;
+}
+
+.family-overview h2 {
+  color: #2c3e50;
+  margin: 0 0 1.5rem 0;
+  font-size: 1.8rem;
+}
+
+.overview-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+}
+
+.child-comparison {
+  margin-bottom: 3rem;
+}
+
+.child-comparison h2 {
+  color: #2c3e50;
+  margin: 0 0 1.5rem 0;
+  font-size: 1.8rem;
+}
+
+.comparison-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+}
+
+.child-summary-card {
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.child-summary-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+.child-header {
+  margin-bottom: 1.5rem;
+}
+
+.child-header h3 {
+  color: #2c3e50;
+  margin: 0 0 0.25rem 0;
+  font-size: 1.5rem;
+}
+
+.child-details {
+  color: #7f8c8d;
+  font-size: 0.9rem;
+}
+
+.child-metrics {
+  margin-bottom: 1.5rem;
+}
+
+.metric {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid #ecf0f1;
+}
+
+.metric:last-child {
+  border-bottom: none;
+}
+
+.metric-label {
+  color: #34495e;
+  font-weight: 500;
+}
+
+.metric-value {
+  color: #2c3e50;
+  font-weight: bold;
+}
+
+.progress-visual {
+  width: 100px;
+  height: 8px;
+  background-color: #ecf0f1;
+  border-radius: 4px;
+  overflow: hidden;
+  margin: 0 0.5rem;
+}
+
+.child-actions {
+  text-align: center;
+}
+
+.view-profile-btn {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  text-decoration: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 6px;
+  font-weight: 500;
+  transition: transform 0.3s;
+  display: inline-block;
+}
+
+.view-profile-btn:hover {
+  transform: translateY(-1px);
+}
+
+.weekly-trends {
+  margin-bottom: 3rem;
+}
+
+.weekly-trends h2 {
+  color: #2c3e50;
+  margin: 0 0 1.5rem 0;
+  font-size: 1.8rem;
+}
+
+.trends-chart {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  padding: 2rem;
+  min-height: 200px;
+  gap: 1rem;
+}
+
+.day-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  max-width: 120px;
+}
+
+.day-header {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.day-name {
+  display: block;
+  font-weight: bold;
+  color: #2c3e50;
+  font-size: 0.9rem;
+}
+
+.day-date {
+  display: block;
+  color: #7f8c8d;
+  font-size: 0.8rem;
+}
+
+.activity-bar {
+  height: 100px;
+  display: flex;
+  align-items: end;
+  margin-bottom: 0.5rem;
+}
+
+.quiz-bar {
+  width: 20px;
+  border-radius: 2px;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+
+.quiz-bar:hover {
+  opacity: 0.8;
+}
+
+.day-stats {
+  text-align: center;
+}
+
+.quiz-count {
+  display: block;
+  font-weight: bold;
+  color: #2c3e50;
+  font-size: 0.9rem;
+}
+
+.avg-score {
+  display: block;
+  color: #7f8c8d;
+  font-size: 0.8rem;
+}
+
+.chart-legend {
+  text-align: center;
+  margin-top: 1rem;
+  color: #7f8c8d;
+  font-size: 0.9rem;
+}
+
+.recommendations {
+  margin-bottom: 3rem;
+}
+
+.recommendations h2 {
+  color: #2c3e50;
+  margin: 0 0 1.5rem 0;
+  font-size: 1.8rem;
+}
+
+.recommendation-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.recommendation-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  background: #fff8e1;
+  border: 1px solid #f39c12;
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+.recommendation-icon {
+  font-size: 1.2rem;
+  flex-shrink: 0;
+  margin-top: 0.1rem;
+}
+
+.recommendation-item p {
+  margin: 0;
+  color: #2c3e50;
+  line-height: 1.5;
+}
+
+.quick-actions {
+  margin-bottom: 2rem;
+}
+
+.quick-actions h2 {
+  color: #2c3e50;
+  margin: 0 0 1.5rem 0;
+  font-size: 1.8rem;
+}
+
+.action-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.action-card {
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  padding: 2rem;
+  text-align: center;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.3s, box-shadow 0.3s;
+  cursor: pointer;
+}
+
+.action-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+.action-card.info-card {
+  background: #f8f9fa;
+  border-color: #dee2e6;
+  cursor: default;
+}
+
+.action-card.info-card:hover {
+  transform: none;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.action-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.action-card h3 {
+  color: #2c3e50;
+  margin: 0 0 0.5rem 0;
+  font-size: 1.3rem;
+}
+
+.action-card p {
+  color: #7f8c8d;
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+  .parent-dashboard {
+    padding: 1rem;
+  }
+  
+  .dashboard-header h1 {
+    font-size: 2rem;
+  }
+  
+  .overview-stats {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+  
+  .comparison-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .child-summary-card {
+    padding: 1.5rem;
+  }
+  
+  .trends-chart {
+    padding: 1rem;
+    min-height: 150px;
+  }
+  
+  .day-column {
+    max-width: none;
+  }
+  
+  .activity-bar {
+    height: 60px;
+  }
+  
+  .action-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .family-overview h2,
+  .child-comparison h2,
+  .weekly-trends h2,
+  .recommendations h2,
+  .quick-actions h2 {
+    font-size: 1.5rem;
+  }
+}
+
+/* Family Analytics Styles */
+.family-analytics {
+  margin-bottom: 3rem;
+}
+
+.family-analytics h2 {
+  color: #2c3e50;
+  margin: 0 0 2rem 0;
+  font-size: 1.8rem;
+  text-align: center;
+}
+
+.analytics-section {
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.analytics-section h3 {
+  color: #2c3e50;
+  margin: 0 0 1.5rem 0;
+  font-size: 1.4rem;
+}
+
+/* Area Comparison Chart */
+.area-comparison-chart {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.comparison-row {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  align-items: center;
+  gap: 1rem;
+}
+
+.area-label {
+  font-weight: bold;
+  color: #2c3e50;
+  font-size: 0.9rem;
+}
+
+.comparison-bars {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.child-bar {
+  display: grid;
+  grid-template-columns: 60px 1fr 40px;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.child-name {
+  font-size: 0.85rem;
+  color: #34495e;
+  font-weight: 500;
+}
+
+.ethan-bar {
+  background-color: #3498db;
+}
+
+.daniel-bar {
+  background-color: #e74c3c;
+}
+
+.score-label {
+  font-size: 0.8rem;
+  color: #2c3e50;
+  font-weight: bold;
+  text-align: right;
+}
+
+/* Time Distribution Chart */
+.time-distribution-chart {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  min-height: 120px;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.time-day-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+}
+
+.time-day-header {
+  margin-bottom: 0.5rem;
+}
+
+.time-day-name {
+  font-size: 0.8rem;
+  color: #7f8c8d;
+  font-weight: 500;
+}
+
+.time-bars {
+  display: flex;
+  align-items: end;
+  gap: 2px;
+  margin-bottom: 0.5rem;
+  height: 80px;
+}
+
+.time-bar {
+  width: 8px;
+  border-radius: 1px;
+  min-height: 2px;
+  transition: all 0.3s;
+}
+
+.ethan-time {
+  background-color: #3498db;
+}
+
+.daniel-time {
+  background-color: #e74c3c;
+}
+
+.time-stats {
+  text-align: center;
+}
+
+.total-time {
+  font-size: 0.8rem;
+  color: #2c3e50;
+  font-weight: bold;
+}
+
+.time-legend {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.legend-color {
+  width: 12px;
+  height: 12px;
+  border-radius: 2px;
+}
+
+.ethan-color {
+  background-color: #3498db;
+}
+
+.daniel-color {
+  background-color: #e74c3c;
+}
+
+.legend-item span {
+  font-size: 0.9rem;
+  color: #2c3e50;
+  font-weight: 500;
+}
+
+/* Strengths and Weaknesses */
+.strengths-weaknesses {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.child-analysis {
+  background: #f8f9fa;
+  border: 1px solid #ecf0f1;
+  border-radius: 8px;
+  padding: 1.5rem;
+}
+
+.child-analysis h4 {
+  color: #2c3e50;
+  margin: 0 0 1rem 0;
+  font-size: 1.2rem;
+}
+
+.analysis-group {
+  margin-bottom: 1rem;
+}
+
+.analysis-group:last-child {
+  margin-bottom: 0;
+}
+
+.analysis-group h5 {
+  color: #2c3e50;
+  margin: 0 0 0.5rem 0;
+  font-size: 1rem;
+}
+
+.analysis-group ul {
+  margin: 0;
+  padding-left: 1.2rem;
+}
+
+.analysis-group li {
+  color: #34495e;
+  margin-bottom: 0.25rem;
+  font-size: 0.9rem;
+}
+
+.strengths {
+  border-left: 4px solid #27ae60;
+  padding-left: 1rem;
+  background: linear-gradient(135deg, #f8fff8 0%, #e8f5e8 100%);
+}
+
+.weaknesses {
+  border-left: 4px solid #e74c3c;
+  padding-left: 1rem;
+  background: linear-gradient(135deg, #fff8f8 0%, #f8e8e8 100%);
+}
+
+.recommendations {
+  border-left: 4px solid #f39c12;
+  padding-left: 1rem;
+  background: linear-gradient(135deg, #fff8e1 0%, #f3e5ab 100%);
+}
+
+@media (max-width: 768px) {
+  .comparison-row {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+  
+  .area-label {
+    text-align: center;
+    margin-bottom: 0.5rem;
+  }
+  
+  .time-distribution-chart {
+    min-height: 80px;
+  }
+  
+  .time-bars {
+    height: 60px;
+  }
+  
+  .time-bar {
+    width: 6px;
+  }
+  
+  .strengths-weaknesses {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .child-analysis {
+    padding: 1rem;
+  }
+  
+  .time-legend {
+    gap: 1rem;
+  }
+}
+
+/* Math Racing Game Styles */
+.math-racing-intro,
+.math-racing-results,
+.math-racing-game {
+  padding: 2rem;
+  text-align: center;
+}
+
+.math-racing-intro .game-intro-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.math-racing-intro h1 {
+  font-size: 3rem;
+  color: #e74c3c;
+  margin-bottom: 0.5rem;
+}
+
+.math-racing-intro h2 {
+  color: #2c3e50;
+  margin-bottom: 2rem;
+}
+
+.game-info {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin: 2rem 0;
+  text-align: left;
+}
+
+.game-rules,
+.game-tips {
+  background: #f8f9fa;
+  padding: 1.5rem;
+  border-radius: 10px;
+  border-left: 4px solid #e74c3c;
+}
+
+.game-rules h3,
+.game-tips h3 {
+  color: #2c3e50;
+  margin-bottom: 1rem;
+}
+
+.game-rules ul,
+.game-tips ul {
+  padding-left: 1.5rem;
+}
+
+.game-rules li,
+.game-tips li {
+  margin-bottom: 0.5rem;
+  color: #34495e;
+}
+
+.start-game-button {
+  background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+  color: white;
+  border: none;
+  padding: 1rem 3rem;
+  border-radius: 50px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s;
+  box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3);
+}
+
+.start-game-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(231, 76, 60, 0.4);
+}
+
+.math-racing-game .game-header {
+  background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+  color: white;
+  padding: 1.5rem;
+  border-radius: 10px;
+  margin-bottom: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.game-stats {
+  display: flex;
+  gap: 2rem;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.stat-label {
+  font-size: 0.9rem;
+  opacity: 0.9;
+  margin-bottom: 0.25rem;
+}
+
+.stat-value {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.stat-value.warning {
+  color: #f39c12;
+  animation: pulse 1s infinite;
+}
+
+.stat-value.hot-streak {
+  color: #f39c12;
+  text-shadow: 0 0 10px rgba(243, 156, 18, 0.5);
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+.question-card.racing {
+  background: white;
+  border-radius: 15px;
+  padding: 2rem;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.math-question {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #2c3e50;
+  margin: 2rem 0;
+  font-family: 'Courier New', monospace;
+}
+
+.racing-options {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.racing-option {
+  background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+  color: white;
+  border: none;
+  padding: 1.5rem;
+  border-radius: 10px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s;
+  box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+}
+
+.racing-option:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(52, 152, 219, 0.4);
+}
+
+.racing-option:active {
+  transform: scale(0.98);
+}
+
+.streak-celebration {
+  background: linear-gradient(135deg, #f39c12 0%, #e67e22 100%);
+  color: white;
+  padding: 1rem;
+  border-radius: 10px;
+  margin-top: 1rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+  animation: celebration 0.5s ease-out;
+}
+
+@keyframes celebration {
+  0% {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.math-racing-results .final-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.stat-card {
+  background: white;
+  border-radius: 15px;
+  padding: 2rem;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  transition: transform 0.3s;
+}
+
+.stat-card:hover {
+  transform: translateY(-2px);
+}
+
+.stat-card.primary {
+  background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%);
+  color: white;
+}
+
+.stat-icon {
+  font-size: 2rem;
+}
+
+.stat-content h3 {
+  margin: 0;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.stat-content p {
+  margin: 0;
+  opacity: 0.8;
+}
+
+.performance-message {
+  margin: 2rem 0;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.performance-message .excellent {
+  color: #27ae60;
+}
+
+.performance-message .good {
+  color: #2980b9;
+}
+
+.performance-message .encourage {
+  color: #f39c12;
+}
+
+.performance-message .motivate {
+  color: #e74c3c;
+}
+
+.game-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.back-to-profile-button,
+.play-again-button {
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.back-to-profile-button {
+  background: #95a5a6;
+  color: white;
+}
+
+.play-again-button {
+  background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+  color: white;
+}
+
+.back-to-profile-button:hover,
+.play-again-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.game-loading {
+  text-align: center;
+  padding: 4rem;
+  font-size: 1.5rem;
+  color: #2c3e50;
+}
+
+/* Mobile responsiveness for Math Racing */
+@media (max-width: 768px) {
+  .game-info {
+    grid-template-columns: 1fr;
+  }
+  
+  .math-racing-game .game-header {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .game-stats {
+    gap: 1rem;
+  }
+  
+  .math-question {
+    font-size: 2rem;
+  }
+  
+  .racing-options {
+    grid-template-columns: 1fr;
+  }
+  
+  .game-actions {
+    flex-direction: column;
+  }
+  
+  .final-stats {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Resource Library Styles */
+.resource-library {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.resource-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.resource-header h1 {
+  font-size: 2.5rem;
+  color: #2c3e50;
+  margin-bottom: 1rem;
+}
+
+.resource-header p {
+  font-size: 1.2rem;
+  color: #7f8c8d;
+}
+
+.resource-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 3rem;
+  border-bottom: 2px solid #ecf0f1;
+  padding-bottom: 1rem;
+}
+
+.tab-button {
+  background: none;
+  border: none;
+  padding: 1rem 2rem;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #7f8c8d;
+  cursor: pointer;
+  border-radius: 10px 10px 0 0;
+  transition: all 0.3s;
+  position: relative;
+}
+
+.tab-button:hover {
+  color: #2c3e50;
+  background-color: #f8f9fa;
+}
+
+.tab-button.active {
+  color: #3498db;
+  background-color: white;
+  box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+}
+
+.tab-button.active::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background-color: #3498db;
+}
+
+.tab-content {
+  min-height: 500px;
+}
+
+.resource-section {
+  animation: fadeIn 0.3s ease-in;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.section-header h2 {
+  color: #2c3e50;
+  margin-bottom: 0.5rem;
+}
+
+.section-header p {
+  color: #7f8c8d;
+  font-size: 1.1rem;
+}
+
+/* Study Tips Styles */
+.filter-controls {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  justify-content: center;
+}
+
+.filter-controls label {
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+.area-filter {
+  padding: 0.5rem 1rem;
+  border: 2px solid #bdc3c7;
+  border-radius: 5px;
+  font-size: 1rem;
+  background-color: white;
+}
+
+.tips-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+}
+
+.tip-card {
+  background: white;
+  border-radius: 15px;
+  padding: 2rem;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  border-left: 5px solid #3498db;
+  transition: transform 0.3s;
+}
+
+.tip-card:hover {
+  transform: translateY(-5px);
+}
+
+.tip-card.beginner {
+  border-left-color: #27ae60;
+}
+
+.tip-card.intermediate {
+  border-left-color: #f39c12;
+}
+
+.tip-card.advanced {
+  border-left-color: #e74c3c;
+}
+
+.tip-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+}
+
+.tip-header h3 {
+  color: #2c3e50;
+  margin: 0;
+  flex: 1;
+}
+
+.difficulty-badge {
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-left: 1rem;
+}
+
+.difficulty-badge.beginner {
+  background-color: #d5f4e6;
+  color: #27ae60;
+}
+
+.difficulty-badge.intermediate {
+  background-color: #fdeaa7;
+  color: #f39c12;
+}
+
+.difficulty-badge.advanced {
+  background-color: #fab1a0;
+  color: #e74c3c;
+}
+
+.tip-description {
+  color: #34495e;
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+.tip-examples h4 {
+  color: #2c3e50;
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+}
+
+.tip-examples ul {
+  padding-left: 1.5rem;
+  margin: 0;
+}
+
+.tip-examples li {
+  color: #34495e;
+  margin-bottom: 0.5rem;
+  line-height: 1.5;
+}
+
+/* External Resources Styles */
+.resources-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.resource-card {
+  background: white;
+  border-radius: 15px;
+  padding: 2rem;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  transition: transform 0.3s;
+}
+
+.resource-card:hover {
+  transform: translateY(-5px);
+}
+
+.resource-header {
+  margin-bottom: 1rem;
+}
+
+.resource-header h3 {
+  color: #2c3e50;
+  margin-bottom: 0.5rem;
+}
+
+.resource-meta {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.resource-type {
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.resource-type.website {
+  background-color: #e8f4f8;
+  color: #3498db;
+}
+
+.resource-type.app {
+  background-color: #e8f6f3;
+  color: #27ae60;
+}
+
+.resource-type.video {
+  background-color: #fdf2e9;
+  color: #e67e22;
+}
+
+.resource-type.book {
+  background-color: #fdedef;
+  color: #e74c3c;
+}
+
+.age-group {
+  padding: 0.25rem 0.75rem;
+  background-color: #f8f9fa;
+  color: #7f8c8d;
+  border-radius: 20px;
+  font-size: 0.8rem;
+}
+
+.resource-description {
+  color: #34495e;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.resource-link {
+  display: inline-block;
+  background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+  color: white;
+  text-decoration: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 25px;
+  font-weight: bold;
+  transition: all 0.3s;
+}
+
+.resource-link:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+}
+
+/* Worksheets Styles */
+.worksheets-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.worksheet-card {
+  background: white;
+  border-radius: 15px;
+  padding: 2rem;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  text-align: center;
+  transition: transform 0.3s;
+}
+
+.worksheet-card:hover {
+  transform: translateY(-5px);
+}
+
+.worksheet-card h3 {
+  color: #2c3e50;
+  margin-bottom: 1rem;
+}
+
+.worksheet-card p {
+  color: #7f8c8d;
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+.worksheet-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.download-btn {
+  background-color: #95a5a6;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 5px;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.practice-btn {
+  background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%);
+  color: white;
+  text-decoration: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: all 0.3s;
+}
+
+.practice-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(39, 174, 96, 0.3);
+}
+
+.coming-soon {
+  color: #7f8c8d;
+  font-style: italic;
+}
+
+/* Parent Guide Styles */
+.parent-guide-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.guide-card {
+  background: white;
+  border-radius: 15px;
+  padding: 2rem;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  border-left: 5px solid #9b59b6;
+}
+
+.guide-card h3 {
+  color: #2c3e50;
+  margin-bottom: 1.5rem;
+}
+
+.guide-points {
+  padding-left: 1.5rem;
+  margin: 0;
+}
+
+.guide-points li {
+  color: #34495e;
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+.additional-support {
+  background: #f8f9fa;
+  border-radius: 15px;
+  padding: 2rem;
+  margin-top: 2rem;
+}
+
+.additional-support h3 {
+  color: #2c3e50;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.support-links {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.support-item {
+  text-align: center;
+}
+
+.support-item h4 {
+  color: #2c3e50;
+  margin-bottom: 1rem;
+}
+
+.support-item p {
+  color: #7f8c8d;
+  line-height: 1.6;
+}
+
+/* Mobile Responsiveness for Resource Library */
+@media (max-width: 768px) {
+  .resource-library {
+    padding: 1rem;
+  }
+  
+  .resource-tabs {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  
+  .tab-button {
+    padding: 0.75rem 1rem;
+    font-size: 0.9rem;
+  }
+  
+  .tips-grid,
+  .resources-grid,
+  .worksheets-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .parent-guide-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .filter-controls {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .worksheet-actions {
+    flex-direction: column;
+  }
+  
+  .support-links {
+    grid-template-columns: 1fr;
   }
 }

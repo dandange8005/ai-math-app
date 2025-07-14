@@ -5,6 +5,9 @@ import Home from './pages/Home';
 import Profile from './pages/Profile';
 import Exercise from './pages/Exercise';
 import Quiz from './pages/Quiz';
+import ParentDashboard from './pages/ParentDashboard';
+import MathRacing from './pages/MathRacing';
+import ResourceLibrary from './pages/ResourceLibrary';
 import './App.css';
 
 function App() {
@@ -18,6 +21,9 @@ function App() {
             <Route path="/profile/:childId" element={<Profile />} />
             <Route path="/exercise/:areaId" element={<Exercise />} />
             <Route path="/quiz/:areaId" element={<Quiz />} />
+            <Route path="/racing/:areaId" element={<MathRacing />} />
+            <Route path="/parent-dashboard" element={<ParentDashboard />} />
+            <Route path="/resources" element={<ResourceLibrary />} />
           </Routes>
         </main>
       </div>

@@ -29,40 +29,7 @@ const QuizPage: React.FC = () => {
     }
   }, [areaId]);
 
-  useEffect(() => {
-    let timer: NodeJS.Timeout;
-    if (quizStarted && timeRemaining > 0 && !showResults) {
-      timer = setTimeout(() => {
-        setTimeRemaining(timeRemaining - 1);
-      }, 1000);
-    } else if (timeRemaining === 0 && !showResults) {
-      finishQuiz();
-    }
-    return () => clearTimeout(timer);
-  }, [timeRemaining, quizStarted, showResults]);
-
-  const startQuiz = () => {
-    setQuizStarted(true);
-    setStartTime(new Date());
-  };
-
-  const handleAnswerSelect = (answer: string) => {
-    setCurrentAnswer(answer);
-  };
-
-  const nextQuestion = () => {
-    const newAnswers = [...userAnswers, currentAnswer];
-    setUserAnswers(newAnswers);
-    setCurrentAnswer('');
-
-    if (currentQuestionIndex < exercises.length - 1) {
-      setCurrentQuestionIndex(currentQuestionIndex + 1);
-    } else {
-      finishQuiz(newAnswers);
-    }
-  };
-
-  const finishQuiz = (finalAnswers: string[] = userAnswers) => {
+  const finishQuiz = React.useCallback((finalAnswers: string[] = userAnswers) => {
     const endTime = new Date();
     const timeSpent = Math.round((endTime.getTime() - startTime.getTime()) / 1000);
     
@@ -93,7 +60,41 @@ const QuizPage: React.FC = () => {
     updateChildProgress(quizResult.childId, areaId!, score);
 
     setShowResults(true);
+  }, [userAnswers, startTime, exercises, areaId, addQuizResult, updateChildProgress]);
+
+  useEffect(() => {
+    let timer: NodeJS.Timeout;
+    if (quizStarted && timeRemaining > 0 && !showResults) {
+      timer = setTimeout(() => {
+        setTimeRemaining(timeRemaining - 1);
+      }, 1000);
+    } else if (timeRemaining === 0 && !showResults) {
+      finishQuiz();
+    }
+    return () => clearTimeout(timer);
+  }, [timeRemaining, quizStarted, showResults, finishQuiz]);
+
+  const startQuiz = () => {
+    setQuizStarted(true);
+    setStartTime(new Date());
   };
+
+  const handleAnswerSelect = (answer: string) => {
+    setCurrentAnswer(answer);
+  };
+
+  const nextQuestion = () => {
+    const newAnswers = [...userAnswers, currentAnswer];
+    setUserAnswers(newAnswers);
+    setCurrentAnswer('');
+
+    if (currentQuestionIndex < exercises.length - 1) {
+      setCurrentQuestionIndex(currentQuestionIndex + 1);
+    } else {
+      finishQuiz(newAnswers);
+    }
+  };
+
 
   const getChildIdFromArea = (area: string): string => {
     // Determine which child based on the area

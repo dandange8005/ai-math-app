@@ -38,6 +38,9 @@ const Profile: React.FC = () => {
                 <Link to={`/quiz/${areaId}`} className="quiz-button">
                   Take Quiz
                 </Link>
+                <Link to={`/racing/${areaId}`} className="racing-button">
+                  🏎️ Racing
+                </Link>
               </div>
             </div>
           ))}

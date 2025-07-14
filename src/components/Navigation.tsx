@@ -35,6 +35,12 @@ const Navigation: React.FC = () => {
           >
             Parent Dashboard
           </Link>
+          <Link 
+            to="/resources" 
+            className={location.pathname === '/resources' ? 'active' : ''}
+          >
+            Resources
+          </Link>
         </div>
       </div>
     </nav>
