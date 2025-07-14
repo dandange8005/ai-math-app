@@ -4,6 +4,7 @@ import Navigation from './components/Navigation';
 import Home from './pages/Home';
 import Profile from './pages/Profile';
 import Exercise from './pages/Exercise';
+import Quiz from './pages/Quiz';
 import './App.css';
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/profile/:childId" element={<Profile />} />
             <Route path="/exercise/:areaId" element={<Exercise />} />
+            <Route path="/quiz/:areaId" element={<Quiz />} />
           </Routes>
         </main>
       </div>

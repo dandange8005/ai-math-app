@@ -46,9 +46,12 @@ Step-by-step guide for uploading project to GitHub:
 ## 📋 Current Features
 
 - ✅ **35 Interactive Exercises** across 7 math areas
+- ✅ **Timed Quiz System** with 5-minute assessments
+- ✅ **Advanced Progress Tracking** with visual analytics
 - ✅ **Personalized Profiles** for Ethan and Daniel
-- ✅ **Progress Tracking** with local storage
-- ✅ **Instant Feedback** with explanations
+- ✅ **Performance Statistics** and improvement tracking
+- ✅ **Recent Activity Monitoring** with motivational feedback
+- ✅ **Instant Feedback** with detailed explanations
 - ✅ **Responsive Design** for all devices
 
 ## 🎯 Learning Areas Covered
@@ -74,20 +77,25 @@ Step-by-step guide for uploading project to GitHub:
 
 ## 📈 Roadmap
 
-### Phase 3 (Current)
-- [ ] Quiz system with scoring
-- [ ] Enhanced progress visualization
-- [ ] Performance analytics
+### Phase 3 (Completed ✅)
+- [x] Quiz system with scoring and timing
+- [x] Enhanced progress visualization with charts
+- [x] Performance analytics and improvement tracking
 
-### Phase 4 (Planned)
-- [ ] Parent dashboard
-- [ ] Math games
-- [ ] External question bank integration
+### Phase 4 (Current)
+- [ ] Parent dashboard for monitoring both children
+- [ ] Cross-child progress comparison
+- [ ] Detailed reporting and recommendations
 
-### Phase 5 (Future)
-- [ ] Resource library
+### Phase 5 (Planned)
+- [ ] Math games and interactive activities
+- [ ] Resource library with educational content
+- [ ] External question bank integration (Khan Academy API)
+
+### Phase 6 (Future)
 - [ ] AI-powered question generation
 - [ ] Mobile app version
+- [ ] Teacher/tutor interface
 
 ## 🤝 Contributing
 

@@ -2,6 +2,7 @@ import React from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { useChildrenData } from '../hooks/useChildrenData';
 import { mathAreas } from '../utils/childrenData';
+import ProgressChart from '../components/ProgressChart';
 
 const Profile: React.FC = () => {
   const { childId } = useParams<{ childId: string }>();
@@ -59,6 +60,8 @@ const Profile: React.FC = () => {
           </div>
         </div>
       </div>
+      
+      <ProgressChart childId={childId!} />
     </div>
   );
 };
