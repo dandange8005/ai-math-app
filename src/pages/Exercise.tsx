@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { Exercise } from '../types';
+import { Exercise, ExerciseResult } from '../types';
 import { getExercisesByArea } from '../utils/exercises';
 import { mathAreas } from '../utils/childrenData';
 import { useChildrenData } from '../hooks/useChildrenData';
@@ -8,7 +8,7 @@ import { useChildrenData } from '../hooks/useChildrenData';
 const ExercisePage: React.FC = () => {
   const { areaId } = useParams<{ areaId: string }>();
   const navigate = useNavigate();
-  const { updateChildProgress } = useChildrenData();
+  const { updateChildProgress, addExerciseResult } = useChildrenData();
   
   const [exercises, setExercises] = useState<Exercise[]>([]);
   const [currentExerciseIndex, setCurrentExerciseIndex] = useState(0);
@@ -17,6 +17,7 @@ const ExercisePage: React.FC = () => {
   const [isCorrect, setIsCorrect] = useState(false);
   const [score, setScore] = useState(0);
   const [completedExercises, setCompletedExercises] = useState(0);
+  const [startTime, setStartTime] = useState<Date>(new Date());
 
   useEffect(() => {
     if (areaId) {
@@ -24,6 +25,14 @@ const ExercisePage: React.FC = () => {
       setExercises(areaExercises);
     }
   }, [areaId]);
+
+  useEffect(() => {
+    // Focus the exercise page for keyboard navigation
+    const exercisePage = document.querySelector('.exercise-page') as HTMLElement;
+    if (exercisePage) {
+      exercisePage.focus();
+    }
+  }, [currentExerciseIndex]);
 
   const currentExercise = exercises[currentExerciseIndex];
 
@@ -48,6 +57,22 @@ const ExercisePage: React.FC = () => {
     } else {
       // Exercise session complete
       const finalScore = Math.round((score / exercises.length) * 100);
+      const endTime = new Date();
+      const timeSpent = Math.round((endTime.getTime() - startTime.getTime()) / 1000); // in seconds
+      
+      // Create exercise result for both children
+      const exerciseResult: ExerciseResult = {
+        id: `exercise-${Date.now()}`,
+        childId: 'ethan', // We'll save for both children
+        area: areaId!,
+        score: finalScore,
+        totalQuestions: exercises.length,
+        date: new Date(),
+        timeSpent
+      };
+      
+      addExerciseResult(exerciseResult);
+      addExerciseResult({...exerciseResult, childId: 'daniel'});
       
       // Update progress for both children (we'll determine which child later)
       updateChildProgress('ethan', areaId!, finalScore);
@@ -61,12 +86,22 @@ const ExercisePage: React.FC = () => {
     setUserAnswer(option);
   };
 
+  const handleKeyPress = (event: React.KeyboardEvent) => {
+    if (event.key === 'Enter') {
+      if (!showFeedback && userAnswer) {
+        handleSubmit();
+      } else if (showFeedback) {
+        handleNext();
+      }
+    }
+  };
+
   if (!currentExercise) {
     return <div>Loading exercises...</div>;
   }
 
   return (
-    <div className="exercise-page">
+    <div className="exercise-page" onKeyPress={handleKeyPress} tabIndex={0}>
       <div className="exercise-header">
         <h1>{mathAreas[areaId as keyof typeof mathAreas]}</h1>
         <div className="progress-info">
@@ -101,6 +136,7 @@ const ExercisePage: React.FC = () => {
                 type="text"
                 value={userAnswer}
                 onChange={(e) => setUserAnswer(e.target.value)}
+                onKeyPress={handleKeyPress}
                 placeholder="Enter your answer"
                 disabled={showFeedback}
                 className="answer-input"

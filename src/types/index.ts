@@ -28,6 +28,16 @@ export interface QuizResult {
   timeSpent: number;
 }
 
+export interface ExerciseResult {
+  id: string;
+  childId: string;
+  area: string;
+  score: number;
+  totalQuestions: number;
+  date: Date;
+  timeSpent: number;
+}
+
 export interface Progress {
   area: string;
   completedExercises: number;
