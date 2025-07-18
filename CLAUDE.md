@@ -26,6 +26,22 @@ This is **AI Math Helper**, a personalized educational web app for two specific 
 
 The app provides targeted practice exercises for their specific learning gaps identified through recent assessments.
 
+## Learning Requirements
+
+### Ethan's Learning Goals
+- understand and use powers and standard form, and know how fractions, decimals and percentages are connected
+- calculate with fractions including interpreting fractions of seconds, minutes or hours
+- solve more complex problems involving area, including circles, circumference and volume
+- solve complex problems involving conversion of units of measurement/speed and understand and use map scales, scale drawings and bearings
+- solve problems involving the mean of a set of numbers/total of a frequency table, and use statistical graphs to solve more complex problems
+
+### Daniel's Learning Goals
+- understand and use powers and standard form, and know how fractions, decimals and percentages are connected
+- calculate with fractions including interpreting fractions of seconds, minutes or hours
+- solve more complex problems involving area, including circles, circumference and volume
+- solve complex problems involving conversion of units of measurement/speed and understand and use map scales, scale drawings and bearings
+- solve problems involving the mean of a set of numbers/total of a frequency table, and use statistical graphs to solve more complex problems
+
 ## Architecture Overview
 
 ### Data Flow Architecture
